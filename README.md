@@ -14,4 +14,12 @@ This project implements a simple student grade generator in JavaScript. It promp
   
 ```bash
 git clone git@github.com:syowai638/code-challenges.git
-````
+
+```
+
+## Challenge 2: Speed Detector
+- Prompts the user to enter the speed of the car.
+- Outputs "Ok" if speed is <= 70.
+- Calculates demerit points for speeds above 70:
+  - 1 point for every 5 km/s above the limit.
+  - If points exceed 12, prints "License suspended".
