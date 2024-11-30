@@ -1,6 +1,6 @@
 const readline = require("readline");
 
-// Create an interface for user input
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -22,7 +22,7 @@ function getGrade(marks) {
   }
 }
 
-// Prompt the user for input
+
 rl.question("Enter the student's marks (0-100): ", (input) => {
   const marks = parseInt(input);
   if (isNaN(marks)) {
