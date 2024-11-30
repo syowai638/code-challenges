@@ -23,3 +23,11 @@ git clone git@github.com:syowai638/code-challenges.git
 - Calculates demerit points for speeds above 70:
   - 1 point for every 5 km/s above the limit.
   - If points exceed 12, prints "License suspended".
+
+
+## Challenge 3: Net Salary Calculator
+- Inputs: Basic Salary and Benefits.
+- Outputs:
+  - Gross Salary.
+  - PAYE (Tax), NHIF Deduction, NSSF Deduction.
+  - Net Salary (Gross Salary - Total Deductions).
