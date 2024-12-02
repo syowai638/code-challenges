@@ -1,44 +1,43 @@
-// netSalaryCalculator.js
 
 function netSalaryCalculator() {
     const readline = require("readline");
   
-    // Create an interface for user input
+   
     const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
     });
   
-    // Prompt for input
+    
     rl.question("Enter your basic salary: ", (basicSalary) => {
       rl.question("Enter your benefits: ", (benefits) => {
         basicSalary = Number(basicSalary);
         benefits = Number(benefits);
   
-        // Validate inputs
+       
         if (isNaN(basicSalary) || isNaN(benefits) || basicSalary < 0 || benefits < 0) {
           console.log("Invalid input. Please enter positive numbers.");
           rl.close();
           return;
         }
   
-        // Calculate gross salary
+        
         const grossSalary = basicSalary + benefits;
   
-        // PAYE calculation based on tax brackets
+        
         const payee = calculatePAYE(grossSalary);
   
-        // NHIF deduction based on gross salary
+        
         const nhifDeduction = calculateNHIF(grossSalary);
   
-        // NSSF deduction
+       
         const nssfDeduction = calculateNSSF();
   
-        // Calculate net salary
+        
         const totalDeductions = payee + nhifDeduction + nssfDeduction;
         const netSalary = grossSalary - totalDeductions;
   
-        // Output results
+        
         console.log(`Gross Salary: ${grossSalary}`);
         console.log(`PAYE (Tax): ${payee}`);
         console.log(`NHIF Deduction: ${nhifDeduction}`);
@@ -50,23 +49,23 @@ function netSalaryCalculator() {
     });
   }
   
-  // Helper function to calculate PAYE
+  
   function calculatePAYE(grossSalary) {
     let tax = 0;
   
-    // Use PAYE tax brackets (2024 example)
+    
     if (grossSalary <= 24000) {
-      tax = grossSalary * 0.1; // 10%
+      tax = grossSalary * 0.1; 
     } else if (grossSalary <= 32333) {
-      tax = 24000 * 0.1 + (grossSalary - 24000) * 0.25; // 25% for the amount above 24,000
+      tax = 24000 * 0.1 + (grossSalary - 24000) * 0.25;
     } else {
-      tax = 24000 * 0.1 + (32333 - 24000) * 0.25 + (grossSalary - 32333) * 0.3; // 30% for the amount above 32,333
+      tax = 24000 * 0.1 + (32333 - 24000) * 0.25 + (grossSalary - 32333) * 0.3;
     }
   
     return tax;
   }
   
-  // Helper function to calculate NHIF deductions
+  
   function calculateNHIF(grossSalary) {
     let deduction = 0;
   
@@ -92,14 +91,14 @@ function netSalaryCalculator() {
     return deduction;
   }
   
-  // Helper function to calculate NSSF deductions
+  
   function calculateNSSF() {
-    // Standardized NSSF rate (2024 example)
-    const tier1 = 360; // Lower earnings limit
-    const tier2 = 720; // Upper earnings limit
-    return tier1 + tier2; // Total NSSF deduction
+   
+    const tier1 = 360; 
+    const tier2 = 720;
+    return tier1 + tier2;
   }
   
-  // Run the calculator
+ 
   netSalaryCalculator();
   
