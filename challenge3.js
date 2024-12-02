@@ -61,9 +61,9 @@ function calculateNetSalary(basicSalary, benefits) {
     };
   }
   
-  // Example usage
-  const basicSalary = 50000; // Example basic salary in KES
-  const benefits = 10000; // Example benefits in KES
+ 
+  const basicSalary = 50000; 
+  const benefits = 10000; 
   
   const result = calculateNetSalary(basicSalary, benefits);
   
